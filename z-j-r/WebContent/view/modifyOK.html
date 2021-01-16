@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0;
+    }
+    .con{
+        width: 40%;
+        height: 200px;
+        margin-top: 160px;
+        margin-left: 30%;
+        background-color: whitesmoke;
+    }
+    img{
+        width: 40%;
+        height: 200px;
+        float: left;
+        margin-left: 10%;
+    }
+    .con div{
+        width: 50%;
+        height: 200px;
+        float: left;
+        color: cadetblue;
+        font-size:26px;
+        text-align: left;
+        line-height: 200px;
+    }
+    .time{
+        width: 100%;
+        height: 60px;
+        margin: auto;
+        color: red;
+        text-align:center;
+        line-height: 60px;
+    }
+    .time span{
+        display: inline;
+        font-size: 30px;
+        margin: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <img src="img/succ.jpg" alt="">
+        <div class="succ">修改成功</div>
+    </div>
+    <div class="time"><span>3</span>秒后返回主页面</div>
+    <script>
+        var oSpan = document.getElementsByTagName("span")[0];
+        var oDiv = document.getElementsByClassName("succ")[0];
+        window.onload = function(){
+            var getP = getParam("cancel");
+            if(getP){
+                var i = 3;
+                oDiv.innerHTML = "注销成功";
+                var timer = setInterval(()=>{
+                    oSpan.innerHTML = --i;
+                    if(i == 0){
+                        clearInterval(timer);
+                        window.location.href="../index.html";
+                    }
+                },1000)
+            } else {
+                var i = 3;
+                oDiv.innerHTML = "修改成功";
+                var timer = setInterval(()=>{
+                    oSpan.innerHTML = --i;
+                    if(i == 0){
+                        clearInterval(timer);
+                        window.location.href="person.html";
+                    }
+                },1000)
+            }
+            
+        }
+        
+        function getParam(paramName) {
+            paramValue = "";
+            isFound = false;
+            if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+                arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
+                i = 0;
+                while (i < arrSource.length && !isFound) {
+                    if (arrSource[i].indexOf("=") > 0) {
+                        if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+                            paramValue = arrSource[i].split("=")[1];
+                            isFound = true;
+                        }
+                    }
+                    i++;
+                }
+            }
+            return paramValue;
+        }
+        </script>
+</body>
+</html>

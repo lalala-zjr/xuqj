@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登陆</title>
+</head>
+<style>
+body{
+	margin: 0;
+}
+.head{
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px solid #ccc;
+}
+.word{
+	width: 40%;
+	height: 80px;
+	margin-left: 5%;
+	font-size: 30px;
+	line-height: 80px;
+	text-align: left;
+	color: blue;
+}
+p{
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	font-size: 30px;
+	color: blue;
+	margin: 0;
+}
+input{
+	width: 40%;
+	height: 10px;
+	margin-top: 20px;
+	margin-left: 30%;
+	padding: 2%;
+	box-sizing: border-box;
+}
+.sure{
+	width: 30%;
+	margin-top: 30px;
+	margin-left: 35%;
+	height: 60px;
+	border-radius: 30px;
+	background-color: #ccc;
+	color: blue;
+	line-height: 60px;
+	text-align: center;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 0;
+}
+</style>
+<body>
+	<div class="head">
+		<div class="word">欢迎来到西邮取件！</div>
+	</div>
+	<p>登录</p>
+	<form action="../register" method="post">
+		<input placeholder="请输入手机号" type="text" name="phone">
+		<br>
+		<input placeholder="请输入密码" type="password" name="password">
+		<input type="submit" value="确定" class="sure">
+		<br>
+	</form>
+</body>
+</html>

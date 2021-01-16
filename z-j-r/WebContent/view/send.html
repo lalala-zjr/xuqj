@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布信息</title>
+    <style>
+    body{
+        margin: 0;
+    }
+    .header{
+        width: 100%;
+        height: 160px;
+        /* color: thistle; */
+        box-sizing: border-box;
+        background-image: linear-gradient(to bottom, thistle , rgb(160, 197, 240));
+        position: relative;
+    }
+    .userImg{
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        left: 15%;
+        top: 20px;
+        border-radius: 60px;
+    }
+    .Headword{
+        width: 60%;
+        height: 160px;
+        position: absolute;
+        right: 10%;
+        top: 0;
+        /* background-color: teal; */
+    }
+    .headUser{
+        width: 50%;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        top: 20px;
+        font-size: 26px;
+        font-family: "宋体";
+        line-height: 80px;
+        color: #104797;
+    }
+    .headDo{
+        width: 20%;
+        height: 80px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        font-size: 14px;
+        line-height: 80px;
+        text-align: right;
+        color: red;
+        cursor: pointer;
+    }
+    .content{
+        width: 100%;
+        height: 1300px;
+        position: relative;
+        background-color: rgb(160, 197, 240);
+    }
+    .left{
+        width: 20%;
+        margin-left: 16%;
+        height: 210px;
+        position: absolute;
+        box-sizing: border-box;
+        border: 5px solid #104797;
+    }
+    .left div{
+        width: 90%;
+        position: absolute;
+        height: 40px;
+        left: 5%;
+        color: #104797;
+        line-height: 40px;
+        text-align: center;
+        font-family: "宋体";
+        cursor: pointer;
+    }
+    .left div:hover{
+        color: white;
+        background-color: teal;
+    }
+    .div1{
+        top:20px;
+        border-bottom: 1px solid #999;
+    }
+    .div2{
+        border-bottom: 1px solid #999;
+        top: 60px;
+    }
+    .div3{
+        border-bottom: 1px solid #999;
+        top: 100px;
+    }
+    .div4{
+        top: 140px;
+    }
+    .right{
+        width: 50%;
+        box-sizing: border-box;
+        border-top: 5px solid #104797;
+        border-right: 5px solid #104797;
+        border-bottom: 5px solid #104797;
+        position: absolute;
+        left: 36%;
+    }
+    input{
+        width: 80%;
+        height: 40px;
+        box-sizing: border-box;
+        background-color: rgb(160, 197, 240);
+        padding: 3%;
+    }
+    span{
+        width: 20%;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+        text-align: center;
+        margin-right: 5px;
+        color: #104797;
+        font-family: '宋体';
+    }
+    .box1 div{
+        width: 70%;
+        height: 40px;
+        margin-left: 10%;
+        margin-top: 40px;
+    }
+    .right p{
+        box-sizing: border-box;
+        margin-left: 5%;
+        padding-left: 1%;
+        width: 90%;
+        height: 60px;
+        color: #104797;
+        line-height: 50px;
+        font-size: 20px;
+        border-bottom: 1px solid #666;
+    }
+    textarea{
+        width: 80%;
+        height: 100px;
+        background-color: rgb(160, 197, 240);
+    }
+    button{
+        width: 26%;
+        height: 40px;
+        margin-top: 150px;
+        margin-bottom: 30px;
+        margin-left: 37%;
+        background-color: #104797;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="./img/userImg.jpg" alt="" class="userImg">
+        <div class="Headword">
+            <div class="headUser">发布信息平台</div>
+            <div class="headDo">了解发布取件收费标准</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <div class="div1">基本信息</div>
+            <div class="div2">关于地址</div>
+            <div class="div3">物品信息</div>
+            <div class="div4">其他信息</div>
+        </div>
+        <div class="right">
+            <div class="box1">
+                <p>基本信息</p>
+               <div>
+                    <span>取件码</span>
+                    <input type="text" placeholder="请输入取件码" name="Num" class="number">
+                </div> 
+                <div>
+                    <span>收货人</span>
+                    <input type="text" placeholder="请输入收货人姓名" class="Name">
+                </div> 
+                <div>
+                    <span>手机号</span>
+                    <input type="text" placeholder="请输入取件手机尾号（后四位）" class="Phone">
+                </div>
+            </div>
+            <div class="box1">
+                <p>关于地址</p>
+               <div>
+                    <span>取件地址</span>
+                    <input type="text" placeholder="请输入取件的具体位置（例：体育馆东南角韵达快递）" class="From">
+                </div> 
+                <div>
+                    <span>送达地址</span>
+                    <input type="text" placeholder="请输入送达宿舍（例：长智三325）" class="To">
+                </div> 
+            </div>
+            <div class="box1">
+                <p>物品信息</p>
+               <div>
+                    <span>物品大小</span>
+                    <input type="text" placeholder="大 / 中 / 小" class="Goods">
+                </div>
+            </div>
+            <div class="box1">
+                <p>其他信息</p>
+               <div>
+                    <span>取件时间</span>
+                    <input type="text" placeholder="请输入取件到达的时间" class="Time">
+                </div> 
+                <div>
+                    <span>备注信息</span>
+                    <textarea></textarea>
+                </div> 
+            </div>
+            <button>发布</button>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    var oDiv = document.querySelector(".left");
+    var aDiv = oDiv.querySelectorAll("div");
+    var aP = document.querySelectorAll("p");
+    var oBtn = document.querySelector("button");
+    for(let i = 0;i<aDiv.length;i++){
+        aDiv[i].onclick = function(){
+            aP[i].scrollIntoView();
+        }
+    }
+    
+    oBtn.onclick = function(){
+    	$.ajax({
+            url : "../send",
+            method : "post",
+            data : {
+                "num": $(".number").val(),
+                "name": $(".Name").val(),
+                "from": $(".From").val(),
+                "to": $(".To").val(),
+                "phone": $(".Phone").val(),
+                "good": $(".Goods").val(),
+                "time": $(".Time").val(),
+                "information": $("textarea").val()
+            },
+            success : function (data){
+            	var json = eval(data);
+            	window.location.href="orderW.html?ID=\"" + data.id +"\"";
+            }
+        });
+    }
+    </script>
+</body>
+</html>

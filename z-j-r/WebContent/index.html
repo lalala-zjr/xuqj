@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>网站入口</title>
+<style>
+body{
+	margin: 0;
+	background-image: url("./view/img/5.jpg");
+}
+.font{
+	width: 100%;
+	height: 30px;
+	background-color: #104797;
+}
+.header{
+	width: 80%;
+	height: 80px;
+	position: relative;
+	text-align: center;
+	left: 10%;
+}
+.word{
+	width: 30%;
+	height: 80px;
+	position: absolute;
+	box-sizing: border-box;
+	left: 10%;
+	font-size: 26px;
+	line-height: 80px;
+	color: whitesmoke;
+	border-bottom: 1px solid #ccc;
+	background-image: linear-gradient(to bottom, lightblue, #6d7fcd);
+}
+.login,.register{
+	position: absolute;
+	width: 4%;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	color: whitesmoke;
+}
+.can{
+	position: absolute;
+	width: 8%;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	color: whitesmoke;
+	right: 2%;
+	top: 5px;
+	background-color: #104797;
+	padding:0;
+	margin: 0;
+	border: 0;
+	display: none;
+}
+.login{
+	right: 2%;
+	top: 5px;
+	border-left: 1px solid #ccc;
+}
+.register{
+	right: 6%;
+	top: 5px;
+}
+ul{
+	width: 50%;
+	height: 60px;
+	position: absolute;
+	right: 0;
+	margin: 10px;
+	padding: 0;
+	background-color:rgba(229, 229, 229, 0.8);
+}
+li{
+	box-sizing: border-box;
+	display: block;
+	width: 20%;
+	height: 50px;
+	margin-top: 5px;
+	float: left;
+	
+}
+li a{
+	display: block;
+	width: 70%;
+	height: 32px;
+	font-size: 16px;
+	margin-top: 9px;
+	margin-left: 15%;
+	text-decoration: none;
+	line-height: 32px;
+	text-align: center;
+	cursor: pointer;
+	color: #104797;
+}
+li a:hover{
+	color: #d07412;
+	border-bottom: 2px solid #d07412;
+}
+.last{
+	border: 0;
+}
+.content{
+	width: 80%;
+	position: relative;
+	top: 40px;
+	left: 10%;
+}
+.left{
+	width: 48%;
+	position: absolute;
+	height: 340px;
+	left: 3%;
+	top: 0;
+}
+.leftImg{
+	box-sizing: border-box;
+	border: 5px solid #104797;
+	width: 100%;
+	height: 100%;
+}
+.right{
+	width: 42%;
+	position: absolute;
+	top: 0;
+	right: 4%;
+}
+.rightBack{
+	width: 40%;
+	height: 220px;
+	position: absolute;
+	right: 2%;
+	top: 10px;
+}
+.rightHead{
+	width: 100%;
+	height: 240px;
+	position: relative;
+	border: 5px solid #104797;
+	background-color:rgba(229, 229, 229, 0.7);
+}
+.rightWord{
+	width: 58%;
+	height: 160px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #104797;
+	line-height: 140px;
+	text-align: center;
+	font-size: 22px;
+}
+.nextPage{
+	width: 10%;
+	height: 60px;
+	position: absolute;
+	bottom: 20px;
+	left: 24%;
+	cursor: pointer;
+}
+.logo{
+	width: 10%;
+	height: 80px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+</style>
+</head>
+<body>
+	<div class="font">
+		<a href="./view/regist.html" class="register">登录</a>
+		<a href="./view/login.html" class="login">注册</a>
+		<button class="can">退出登录</button>
+	</div>
+	<div class="header">
+		<img src="./view/img/logo.jpg" alt="" class="logo">
+		<div class="word">欢迎来到西邮取件！</div>
+		<ul>
+			<li><a href="./view/frist.html">首页</a></li>
+			<li><a href="#" class="SEND">发布信息</a></li>
+			<li><a href="#" class="PERSON">个人中心</a></li>
+			<li><a href="#">加盟合作</a></li>
+			<li><a href="#" class="last">关于公司</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="left">
+			<img src="./view/img/4.jpg" alt="哎呀，图丢啦！！！" class="leftImg">
+		</div>
+		<div class="right">
+			<div class="rightHead">
+				<div class="rightWord">--- 取件须知 ---</div>
+				<img src="./view/img/for.png" alt="" class="nextPage">
+				<img src="./view/img/back.jpg" alt=""  class="rightBack">
+			</div>
+		</div>
+	</div>
+	<script src="./view/js/jquery.min.js"></script>
+	<script>
+	var oImg = document.getElementsByClassName("leftImg")[0];
+	var oA1 = document.querySelector(".register");
+	var oA2 = document.querySelector(".login");
+	var oASend = document.querySelector(".SEND");
+	var oAPerson = document.querySelector(".PERSON");
+	var oBtn = document.querySelector(".can");
+	var arr = ["./view/img/4.jpg","./view/img/3.jpg","./view/img/2.jpg","./view/img/1.jpg"]
+	var i = 0;
+	var getP = getParam("a");
+	window.onload = function(){
+		var timer = setInterval(()=>{
+			if(i == 4){
+				i = 0;
+			}
+			oImg.src = arr[i];
+			i++;
+		}, 2000);
+	}
+	function getParam(paramName) {
+		paramValue = "";
+		isFound = false;
+		if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+			arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
+			i = 0;
+			while (i < arrSource.length && !isFound) {
+				if (arrSource[i].indexOf("=") > 0) {
+					if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+						paramValue = arrSource[i].split("=")[1];
+						isFound = true;
+					}
+				}
+				i++;
+			}
+		}
+		return paramValue;
+	}
+	if(getP){
+		oA1.style.display = "none";
+		oA2.style.display = "none";
+		oBtn.style.display = "block";
+	} else {
+		oA1.style.display = "block";
+		oA2.style.display = "block";
+		oBtn.style.display = "none";
+	}
+	oBtn.onclick = function(){
+		$.ajax({
+			url : "leave",
+			method : "post",
+			data : "",
+			success : function (data){
+				console.log("*******************");
+				window.location.href = "index.html";
+			}
+		});
+	}
+	oASend.onclick = function(){
+		if(getP){
+			window.location.href = "./view/send.html"
+		}
+	}
+	oAPerson.onclick = function(){
+		if(getP){
+			window.location.href = "./view/person.html"
+		}
+	}
+	</script>
+</body>
+</html>

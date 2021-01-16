@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+    <style>
+    body{
+        margin: 0;
+    }
+    h1{
+        width: 50%;
+        height: 40px;
+        margin-left: 25%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        line-height: 40px;
+        text-align:center;
+    }
+    h4{
+        display: inline;
+        margin: 0;
+    }
+    .body{
+        width: 50%;
+        margin: 30px 25%;
+        border: 1px solid black;
+    }
+    .body div{
+        margin: 24px 5%;
+    }
+    button{
+        width: 20%;
+        height: 40px;
+        position: relative;
+        left: 40%;
+        padding: 0;
+        margin: 30px 0;
+    }
+    .pre{
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <h1>订单详情</h1>
+        <div>
+            <span>订单号: </span>
+            <h4 class="ID"></h4>
+        </div>
+        <div>
+            <span>发布者: </span>
+            <h4 class="Userphone"></h4>
+        </div>
+        <div>
+            <span>收货人: </span>
+            <h4 class="User"></h4>
+        </div>
+        <div>
+            <span>取货码: </span>
+            <h4 class="NUM"></h4>
+        </div>
+        <div>
+            <span>手机尾号: </span>
+            <h4 class="Phone"></h4>
+        </div>
+        <div>
+            <span>取件地址: </span>
+            <h4 class="Area"></h4>
+        </div>
+        <div>
+            <span>送货地址: </span>
+            <h4 class="TO"></h4>
+        </div>
+        <div>
+            <span>取件时间: </span>
+            <h4 class="T"></h4>
+        </div>
+        <div class="pre">
+            <span class="M"></span>
+        </div>
+        <div>
+            <span>备注信息: </span>
+            <h4 class="INF"></h4>
+        </div>
+    </div>
+    <button>返回</button>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    var oBtn = document.getElementsByTagName("button")[0];
+    oBtn.onclick = function(){
+        window.location.href = "../index.html?a=true";
+    }
+    var getP = getParam("ID");
+    $.ajax({
+        url : "../orderw",
+        method : "post",
+        data : {
+        	"id": getP
+        },
+        success : function (data){
+        	var arr = JSON.parse(data);
+            $(".ID").html(arr.id);
+            $(".INF").html(arr.information);
+            $(".User").html(arr.name);
+            $(".NUM").html(arr.num);
+            $(".Phone").html(arr.phone);
+            $(".T").html(arr.time);
+            $(".M").html("支付金额：" + arr.Goods + "元");
+            $(".TO").html(arr.to);
+            $(".Area").html(arr.from);
+            $(".Userphone").html(arr.User);
+        }
+    });
+    function getParam(paramName) {
+		paramValue = "";
+		isFound = false;
+		if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+			arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
+			i = 0;
+			while (i < arrSource.length && !isFound) {
+				if (arrSource[i].indexOf("=") > 0) {
+					if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+						paramValue = arrSource[i].split("=")[1];
+						isFound = true;
+					}
+				}
+				i++;
+			}
+		}
+		return paramValue;
+	}
+    </script>
+</body>
+</html>
